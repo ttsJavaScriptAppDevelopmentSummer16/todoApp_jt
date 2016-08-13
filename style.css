@@ -1,0 +1,52 @@
+.wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1, form, ul {
+  text-align: center;
+}
+
+ul {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+li {
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+li:hover {
+  color: #b30000;
+}
+
+#btnContainer {
+  margin-top: 1rem;
+}
+
+#newItem {
+  margin: auto 0;
+}
+
+.strikeOut {
+  text-decoration: line-through;
+  animation: fadeOut 1s ease;
+}
+
+@keyframes fadeOut {
+  to {opacity: 0}
+} 
+
+.error {
+  opacity: 0;
+  color: #b30000;
+  transition: all .3s ease-in-out;
+}
+
+.showError {
+  opacity: 1;
+}
+
+
+

@@ -1,56 +1,57 @@
 var q = document.querySelector.bind(document);
 
-var addItemBtn = q('#addItemBtn');
-var userInput = q('#newItem');
-var itemList = q('#list');
-var removeItemBtn = q('#removeItemBtn');
+var addTaskBtn = q('#addTaskBtn');
+var removeTaskBtn = q('#removeTaskBtn');
+var userInput = q('#newTask');
+var taskList = q('#list');
+
 var error = q('.error');
 
-function addItem (e) {
+function addTask (e) {
   e.preventDefault();
-  if (userInput.value === "" || userInput.value === null){
-    error.innerHTML = 'Please enter an item.';
+  if (userInput.value === ""){
+    error.innerHTML = 'Please enter a task.';
     error.classList.add('showError');
   } else {
-    var newItem = document.createElement('li');
-    newItem.innerHTML = userInput.value;
+    var newTask = document.createElement('li');
+    newTask.innerHTML = userInput.value;
 
-    itemList.appendChild(newItem);
+    taskList.appendChild(newTask);
     userInput.value = null;
     error.classList.remove('showError');
   }
   
 }
 
-function removeLastItem (e) {
+function removeLastTask (e) {
 
   e.preventDefault();
-  if (itemList.childElementCount <= 0){
-    error.innerHTML = 'There are no items in the list.';
+  if (taskList.childElementCount <= 0){
+    error.innerHTML = 'There are no tasks in the list.';
     error.classList.add('showError');
   }else {
-    var lastItem = itemList.lastElementChild;
-    lastItem.classList.add('strikeOut');
+    var lastTask = taskList.lastElementChild;
+    lastTask.classList.add('strikeOut');
 
     setTimeout(function(){
-      lastItem.remove();
+      lastTask.remove();
     }, 1000); 
   }
 }
 
-function removeItem (e){
-  var currentItem = e.target;
-  currentItem.classList.add('strikeOut');
+function removeTask (e){
+  var currentTask = e.target;
+  currentTask.classList.add('strikeOut');
 
   setTimeout(function(){
-      currentItem.remove();
-    }, 1000); 
+      currentTask.remove();
+    }, 900); 
   
 }
 
-addItemBtn.addEventListener('click', addItem);
-removeItemBtn.addEventListener('click', removeLastItem);
-itemList.addEventListener('click', removeItem);
+addTaskBtn.addEventListener('click', addTask);
+removeTaskBtn.addEventListener('click', removeLastTask);
+taskList.addEventListener('click', removeTask);
 
 
 

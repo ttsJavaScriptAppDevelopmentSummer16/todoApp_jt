@@ -32,6 +32,7 @@ li:hover {
 .strikeOut {
   text-decoration: line-through;
   animation: fadeOut 1s ease;
+  color: #b30000;
 }
 
 @keyframes fadeOut {
